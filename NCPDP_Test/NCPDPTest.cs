@@ -14,11 +14,6 @@ namespace NCPDP_Test
     [TestClass]
     public class NCPDPTest
     {
-        [ClassInitialize(InheritanceBehavior.BeforeEachDerivedClass)]
-        public static void SerialKey(TestContext context)
-        {
-            EnvConfig.CheckSerialKey();
-        }
 
         [TestMethod]
         public void TestEDI()
@@ -36,8 +31,9 @@ namespace NCPDP_Test
             //NCPDPTest test = new NCPDPTest();
             //var filePath = Environment.GetEnvironmentVariable("filePath") + Environment.GetEnvironmentVariable("fileName");
             var filePath = "C:\\Files\\ClaimBilling";
+            var serialKey = "c417cb9dd9d54297a55c032a74c87996";
 
-            var result = ReadNCPDP.ReadFile(filePath);
+            var result = ReadNCPDP.ReadFile(filePath, serialKey);
 
             Assert.IsNotNull(result);
             Assert.IsNotEmpty(result);

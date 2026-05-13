@@ -52,10 +52,6 @@
           "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
-            "DotNetEnv": {
-              "target": "Package",
-              "version": "[3.2.0, )"
-            },
             "EdiFabric": {
               "target": "Package",
               "version": "[10.7.6, )"

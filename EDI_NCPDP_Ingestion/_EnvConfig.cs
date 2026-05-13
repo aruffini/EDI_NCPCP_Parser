@@ -2,13 +2,14 @@
 
 namespace EDI_NCPDP_Ingestion
 {
-    public static class EnvConfig
+    public static class _EnvConfig
     {
         private static bool validKey = false;
-        private static string? serialKey = Environment.GetEnvironmentVariable("serialKey");        
+        //private static string? serialKey = Environment.GetEnvironmentVariable("serialKey");        
 
         public static bool CheckSerialKey()
         {
+            var serialKey = Environment.GetEnvironmentVariable("serialKey");
 
             try
             {

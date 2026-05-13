@@ -1,21 +1,29 @@
-﻿namespace EDI_NCPDP_Ingestion
+﻿using EdiFabric;
+
+namespace EDI_NCPDP_Ingestion
 {
     public class Program
     {
         
-        public static void Main()
+        public static void Main(string[] args)
         {
-            var validKey = EnvConfig.CheckSerialKey();
-            var fullFilePath = EnvConfig.GetFilePath();
+            var fullFilePath = Config.TestFilesPath+@"\ClaimBilling";
 
-            // Only execute if there is a valid serial key
-            if (validKey)
+            try
             {
-                // Read and Pase the File
-                var ncpdpFiles = ReadNCPDP.ReadFile(fullFilePath);
-                    
+                //SerialKey.Set(Config.TrialSerialKey, true);
+                var serialKey = Config.TrialSerialKey;
+
+                var ncpdpFiles = ReadNCPDP.ReadFile(fullFilePath, serialKey);
+
                 // Save the file to the DB
                 SaveNCPDP.ProcessClaim(ncpdpFiles);
+            }
+            catch (Exception ex)
+            {
+                //if (ex.Message.StartsWith("Can't set token"))
+                //    throw new Exception("Your trial has expired! To continue using EdiFabric SDK you must purchase a plan from https://www.edifabric.com/pricing.html");
+                Console.WriteLine(ex.Message);
             }
         }
 

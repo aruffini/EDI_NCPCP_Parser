@@ -18,20 +18,6 @@
           }
         }
       },
-      "DotNetEnv/3.2.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration": "1.1.2",
-          "Microsoft.Extensions.Configuration.Abstractions": "1.1.2",
-          "Superpower": "3.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/DotNetEnv.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/DotNetEnv.dll": {}
-        }
-      },
       "EdiFabric/10.7.6": {
         "type": "package",
         "compile": {
@@ -1549,19 +1535,6 @@
           }
         }
       },
-      "Superpower/3.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net5.0/Superpower.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net5.0/Superpower.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "System.CodeDom/6.0.0": {
         "type": "package",
         "compile": {
@@ -1916,7 +1889,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "DotNetEnv": "3.2.0",
           "EdiFabric": "10.7.6",
           "EdiFabric.Templates.Ncpdp": "2.7.6",
           "EntityFramework": "6.5.2",
@@ -1957,20 +1929,6 @@
         "lib/netstandard2.1/Castle.Core.dll",
         "lib/netstandard2.1/Castle.Core.xml",
         "readme.txt"
-      ]
-    },
-    "DotNetEnv/3.2.0": {
-      "sha512": "2q+PD+aJcRW9QuRcIv4F8WbvEDxI6cwxzZJec2i45cBY4cAKCAoW4ZPkApJ7H82wr6Yfmxx/0kb1nLnRmZrGZA==",
-      "type": "package",
-      "path": "dotnetenv/3.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "README.md",
-        "dotnetenv.3.2.0.nupkg.sha512",
-        "dotnetenv.nuspec",
-        "lib/netstandard2.0/DotNetEnv.dll"
       ]
     },
     "EdiFabric/10.7.6": {
@@ -3959,22 +3917,6 @@
         "version.txt"
       ]
     },
-    "Superpower/3.0.0": {
-      "sha512": "bjKbAYWePooCAvPxQq+3KnmcLfRggMyRoXmtBMlmCG71bdwBHrO6rmRJ2DRIodg5aztNcxeZXBUVWT+H+MZUhw==",
-      "type": "package",
-      "path": "superpower/3.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Superpower-White-400px.png",
-        "lib/net5.0/Superpower.dll",
-        "lib/net5.0/Superpower.xml",
-        "lib/netstandard2.0/Superpower.dll",
-        "lib/netstandard2.0/Superpower.xml",
-        "superpower.3.0.0.nupkg.sha512",
-        "superpower.nuspec"
-      ]
-    },
     "System.CodeDom/6.0.0": {
       "sha512": "CPc6tWO1LAer3IzfZufDBRL+UZQcj5uS207NHALQzP84Vp/z6wF0Aa0YZImOQY8iStY0A2zI/e3ihKNPfUm8XA==",
       "type": "package",
@@ -4672,8 +4614,9 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "DotNetEnv >= 3.2.0",
       "EDI_NCPDP_Ingestion >= 1.0.0",
+      "EdiFabric >= 10.7.6",
+      "EdiFabric.Templates.Ncpdp >= 2.7.6",
       "MSTest >= 4.2.2",
       "Moq >= 4.20.72"
     ]
@@ -4734,9 +4677,13 @@
         "framework": "net8.0",
         "targetAlias": "net8.0",
         "dependencies": {
-          "DotNetEnv": {
+          "EdiFabric": {
             "target": "Package",
-            "version": "[3.2.0, )"
+            "version": "[10.7.6, )"
+          },
+          "EdiFabric.Templates.Ncpdp": {
+            "target": "Package",
+            "version": "[2.7.6, )"
           },
           "MSTest": {
             "target": "Package",

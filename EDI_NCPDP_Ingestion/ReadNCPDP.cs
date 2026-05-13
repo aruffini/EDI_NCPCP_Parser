@@ -1,15 +1,25 @@
-﻿using EdiFabric.Framework.Readers;
+﻿using EdiFabric;
+using EdiFabric.Framework.Readers;
 using EdiFabric.Templates.TelcoD0;
 
 namespace EDI_NCPDP_Ingestion
 {
     public class ReadNCPDP
     {
-        public static List<TSB1> ReadFile(string filePath)
+        public static List<TSB1> ReadFile(string filePath, string serialKey)
         {
+            try
+            {   
+                SerialKey.Set(serialKey, true);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.StartsWith("Can't set token"))
+                    throw new Exception("Your trial has expired! To continue using EdiFabric SDK you must purchase a plan from https://www.edifabric.com/pricing.html");
+            }
 
             // Load into a Stream
-            using var ncpdpStream = System.IO.File.OpenRead(filePath);
+            using var ncpdpStream = File.OpenRead(filePath);
             using var ncpdpReader = new NcpdpTelcoReader(ncpdpStream, "EdiFabric.Templates.Ncpdp");
 
             var ncpdpItems = ncpdpReader.ReadToEnd().ToList();
