@@ -1,0 +1,11 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    <BuildType Name="Test" />
+  </Configurations>
+  <Project Path="../NCPDP_Test/NCPDP_Test.csproj" Id="d48066b0-fd48-44ce-a6f6-ff17f82160b2" />
+  <Project Path="EDI_NCPDP_Ingestion.csproj">
+    <BuildType Solution="Test|*" Project="Debug" />
+  </Project>
+</Solution>
