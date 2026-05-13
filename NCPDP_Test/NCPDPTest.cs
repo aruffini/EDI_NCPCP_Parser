@@ -14,7 +14,8 @@ namespace NCPDP_Test
     [TestClass]
     public class NCPDPTest
     {
-        public NCPDPTest()
+        [ClassInitialize(InheritanceBehavior.BeforeEachDerivedClass)]
+        public static void SerialKey(TestContext context)
         {
             EnvConfig.CheckSerialKey();
         }
@@ -32,7 +33,9 @@ namespace NCPDP_Test
         [TestMethod]
         public void TestFileParse()
         {
-            var filePath = Environment.GetEnvironmentVariable("filePath") + Environment.GetEnvironmentVariable("fileName");
+            //NCPDPTest test = new NCPDPTest();
+            //var filePath = Environment.GetEnvironmentVariable("filePath") + Environment.GetEnvironmentVariable("fileName");
+            var filePath = "C:\\Files\\ClaimBilling";
 
             var result = ReadNCPDP.ReadFile(filePath);
 

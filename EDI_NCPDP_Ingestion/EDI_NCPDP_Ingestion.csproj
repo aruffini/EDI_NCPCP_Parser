@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Config.cs" />
     <Compile Remove="Model.cs" />
     <Compile Remove="_Model.cs" />
   </ItemGroup>

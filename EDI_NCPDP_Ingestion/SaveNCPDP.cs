@@ -15,7 +15,7 @@ namespace EDI_NCPDP_Ingestion
             {
                 foreach (var tSB in tSB1s)
                 {
-                    //tSB.ClearCache();
+                    tSB.ClearCache();
 
                     // Load into TransactionHeader
                     if (tSB.G1 is not null)

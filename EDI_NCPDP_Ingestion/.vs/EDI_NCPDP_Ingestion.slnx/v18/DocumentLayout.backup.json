@@ -3,13 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\EDI_NCPDP_Ingestion\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|c:\\users\\ashley\\source\\repos\\ef-poc-2025\\ashley-r\\edi_ncpdp_ingestion\\envconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|solutionrelative:envconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D48066B0-FD48-44CE-A6F6-FF17F82160B2}|..\\NCPDP_Test\\NCPDP_Test.csproj|c:\\users\\ashley\\source\\repos\\ef-poc-2025\\ashley-r\\ncpdp_test\\ncpdptest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|c:\\users\\ashley\\source\\repos\\ef-poc-2025\\ashley-r\\edi_ncpdp_ingestion\\readncpdp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|solutionrelative:readncpdp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,8 +11,11 @@
       "RelativeMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|c:\\users\\ashley\\source\\repos\\ef-poc-2025\\ashley-r\\edi_ncpdp_ingestion\\savencpdp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|solutionrelative:savencpdp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D48066B0-FD48-44CE-A6F6-FF17F82160B2}|..\\NCPDP_Test\\NCPDP_Test.csproj|c:\\users\\ashley\\source\\repos\\ef-poc-2025\\ashley-r\\ncpdp_test\\ncpdptest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|c:\\users\\ashley\\source\\repos\\ef-poc-2025\\ashley-r\\edi_ncpdp_ingestion\\envconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|solutionrelative:envconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,8 +25,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EnvConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\EDI_NCPDP_Ingestion\\EnvConfig.cs",
+              "RelativeDocumentMoniker": "EnvConfig.cs",
+              "ToolTip": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\EDI_NCPDP_Ingestion\\EnvConfig.cs",
+              "RelativeToolTip": "EnvConfig.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwCcAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T00:20:57.317Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NCPDPTest.cs",
+              "DocumentMoniker": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\NCPDP_Test\\NCPDPTest.cs",
+              "RelativeDocumentMoniker": "..\\NCPDP_Test\\NCPDPTest.cs",
+              "ToolTip": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\NCPDP_Test\\NCPDPTest.cs",
+              "RelativeToolTip": "..\\NCPDP_Test\\NCPDPTest.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAxwAkAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T00:04:25.65Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\EDI_NCPDP_Ingestion\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\EDI_NCPDP_Ingestion\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T20:49:03.806Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -38,64 +76,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EnvConfig.cs",
-              "DocumentMoniker": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\EDI_NCPDP_Ingestion\\EnvConfig.cs",
-              "RelativeDocumentMoniker": "EnvConfig.cs",
-              "ToolTip": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\EDI_NCPDP_Ingestion\\EnvConfig.cs",
-              "RelativeToolTip": "EnvConfig.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwCcAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T00:20:57.317Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "NCPDPTest.cs",
-              "DocumentMoniker": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\NCPDP_Test\\NCPDPTest.cs",
-              "RelativeDocumentMoniker": "..\\NCPDP_Test\\NCPDPTest.cs",
-              "ToolTip": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\NCPDP_Test\\NCPDPTest.cs",
-              "RelativeToolTip": "..\\NCPDP_Test\\NCPDPTest.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAIA4wCoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T00:04:25.65Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SaveNCPDP.cs",
-              "DocumentMoniker": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\EDI_NCPDP_Ingestion\\SaveNCPDP.cs",
-              "RelativeDocumentMoniker": "SaveNCPDP.cs",
-              "ToolTip": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\EDI_NCPDP_Ingestion\\SaveNCPDP.cs",
-              "RelativeToolTip": "SaveNCPDP.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAgwIMAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-12T20:50:04.37Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\EDI_NCPDP_Ingestion\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\EDI_NCPDP_Ingestion\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-12T20:49:03.806Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "ReadNCPDP.cs",
               "DocumentMoniker": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\EDI_NCPDP_Ingestion\\ReadNCPDP.cs",
               "RelativeDocumentMoniker": "ReadNCPDP.cs",
               "ToolTip": "C:\\Users\\Ashley\\source\\repos\\ef-poc-2025\\ashley-r\\EDI_NCPDP_Ingestion\\ReadNCPDP.cs",
               "RelativeToolTip": "ReadNCPDP.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAnwA0AAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-12T20:11:28.687Z",
               "EditorCaption": ""
