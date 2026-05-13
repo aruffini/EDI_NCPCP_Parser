@@ -2,7 +2,7 @@
 
 namespace EDI_NCPDP_Ingestion
 {
-    public static class StreamExtensions
+    public static class _StreamExtensions
     {
         public static string LoadToString(this Stream stream)
         {

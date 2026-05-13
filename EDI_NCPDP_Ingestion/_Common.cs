@@ -3,9 +3,9 @@ using EdiFabric.Templates.TelcoD0;
 
 namespace EDI_NCPDP_Ingestion
 {
-    internal class Common
+    internal class _Common
     {
-        public class SegmentBuilders
+        public class _SegmentBuilders
         {
             /// <summary>
             /// Build TransmissionHeader

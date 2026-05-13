@@ -8,6 +8,7 @@ namespace EDI_NCPDP_Ingestion
     {
         public static List<TSB1> ReadFile(string filePath, string serialKey)
         {
+            // Check the SerialKey prior to parsing the file. If the key is invalid or expired, an exception will be thrown and the file will not be parsed.
             try
             {   
                 SerialKey.Set(serialKey, true);
@@ -45,10 +46,8 @@ namespace EDI_NCPDP_Ingestion
                     Console.WriteLine("File Parsed.");
                     ncpdpList.Add(transaction);
                 }
-            }
-
+            } // End foreach
             return ncpdpList;
-        }
-        
-    }
-}
+        } // End ReadFile
+    } // End ReadNCPDP
+} // End Namespace

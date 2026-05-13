@@ -11,8 +11,10 @@
 
   <ItemGroup>
     <Compile Remove="Model.cs" />
+    <Compile Remove="_Common.cs" />
     <Compile Remove="_EnvConfig.cs" />
     <Compile Remove="_Model.cs" />
+    <Compile Remove="_StreamExtensions.cs" />
   </ItemGroup>
 
   <ItemGroup>
