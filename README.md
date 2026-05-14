@@ -32,5 +32,5 @@
 - .NET8 SDK
 
 ## Set Up
-Copy the contents of samples to a location of your choice and update Config.cs and NCPDPTest.cs with the folder location.
+Copy the contents of samples to a location of your choice and update Config.cs and NCPDPTest.cs with the folder location prior to executing the main application.
   
