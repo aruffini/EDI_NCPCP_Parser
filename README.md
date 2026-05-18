@@ -33,4 +33,9 @@
 
 ## Set Up
 Copy the contents of samples to a location of your choice and update Config.cs and NCPDPTest.cs with the folder location prior to executing the main application.
+
+### Database Migration Creation
+Run the following in PowerShell or the Package Manager Console in Visual Studio
+1. Add-Migration InitialCreate
+2. Update-Database
   
