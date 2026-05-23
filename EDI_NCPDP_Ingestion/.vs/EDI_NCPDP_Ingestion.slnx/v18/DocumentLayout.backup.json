@@ -3,11 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Ashley\\source\\repos\\EDI_NCPCP_Parser\\EDI_NCPDP_Ingestion\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D48066B0-FD48-44CE-A6F6-FF17F82160B2}|..\\NCPDP_Test\\NCPDP_Test.csproj|c:\\users\\ashley\\source\\repos\\edi_ncpcp_parser\\ncpdp_test\\ncpdptest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|c:\\users\\ashley\\source\\repos\\edi_ncpcp_parser\\edi_ncpdp_ingestion\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|c:\\users\\ashley\\source\\repos\\edi_ncpcp_parser\\edi_ncpdp_ingestion\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|c:\\users\\ashley\\source\\repos\\edi_ncpcp_parser\\edi_ncpdp_ingestion\\s3fileload.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|solutionrelative:s3fileload.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{98CD289B-713A-222E-C36A-AA4170534DA1}|EDI_NCPDP_Ingestion.csproj|c:\\users\\ashley\\source\\repos\\edi_ncpcp_parser\\edi_ncpdp_ingestion\\readncpdp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,53 +26,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "NCPDPTest.cs",
-              "DocumentMoniker": "C:\\Users\\Ashley\\source\\repos\\EDI_NCPCP_Parser\\NCPDP_Test\\NCPDPTest.cs",
-              "RelativeDocumentMoniker": "..\\NCPDP_Test\\NCPDPTest.cs",
-              "ToolTip": "C:\\Users\\Ashley\\source\\repos\\EDI_NCPCP_Parser\\NCPDP_Test\\NCPDPTest.cs",
-              "RelativeToolTip": "..\\NCPDP_Test\\NCPDPTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T17:29:34.962Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Ashley\\source\\repos\\EDI_NCPCP_Parser\\EDI_NCPDP_Ingestion\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Ashley\\source\\repos\\EDI_NCPCP_Parser\\EDI_NCPDP_Ingestion\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-12T20:49:03.806Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ReadNCPDP.cs",
               "DocumentMoniker": "C:\\Users\\Ashley\\source\\repos\\EDI_NCPCP_Parser\\EDI_NCPDP_Ingestion\\ReadNCPDP.cs",
               "RelativeDocumentMoniker": "ReadNCPDP.cs",
               "ToolTip": "C:\\Users\\Ashley\\source\\repos\\EDI_NCPCP_Parser\\EDI_NCPDP_Ingestion\\ReadNCPDP.cs",
               "RelativeToolTip": "ReadNCPDP.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-12T20:11:28.687Z",
+              "WhenOpened": "2026-05-21T17:28:45.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "S3FileLoad.cs",
+              "DocumentMoniker": "C:\\Users\\Ashley\\source\\repos\\EDI_NCPCP_Parser\\EDI_NCPDP_Ingestion\\S3FileLoad.cs",
+              "RelativeDocumentMoniker": "S3FileLoad.cs",
+              "ToolTip": "C:\\Users\\Ashley\\source\\repos\\EDI_NCPCP_Parser\\EDI_NCPDP_Ingestion\\S3FileLoad.cs",
+              "RelativeToolTip": "S3FileLoad.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAIwCgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T14:21:38.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\Ashley\\source\\repos\\EDI_NCPCP_Parser\\EDI_NCPDP_Ingestion\\App.config",
+              "RelativeDocumentMoniker": "App.config",
+              "ToolTip": "C:\\Users\\Ashley\\source\\repos\\EDI_NCPCP_Parser\\EDI_NCPDP_Ingestion\\App.config",
+              "RelativeToolTip": "App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-05-21T13:42:39.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ashley\\source\\repos\\EDI_NCPCP_Parser\\EDI_NCPDP_Ingestion\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Ashley\\source\\repos\\EDI_NCPCP_Parser\\EDI_NCPDP_Ingestion\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T12:31:28.679Z",
               "EditorCaption": ""
             }
           ]

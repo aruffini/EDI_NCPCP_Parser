@@ -132,3 +132,5 @@ C:\Users\Ashley\source\repos\EDI_NCPCP_Parser\EDI_NCPDP_Ingestion\obj\Debug\net8
 C:\Users\Ashley\source\repos\EDI_NCPCP_Parser\EDI_NCPDP_Ingestion\obj\Debug\net8.0\EDI_NCPDP_Ingestion.pdb
 C:\Users\Ashley\source\repos\EDI_NCPCP_Parser\EDI_NCPDP_Ingestion\obj\Debug\net8.0\EDI_NCPDP_Ingestion.genruntimeconfig.cache
 C:\Users\Ashley\source\repos\EDI_NCPCP_Parser\EDI_NCPDP_Ingestion\obj\Debug\net8.0\ref\EDI_NCPDP_Ingestion.dll
+C:\Users\Ashley\source\repos\EDI_NCPCP_Parser\EDI_NCPDP_Ingestion\bin\Debug\net8.0\AWSSDK.Core.dll
+C:\Users\Ashley\source\repos\EDI_NCPCP_Parser\EDI_NCPDP_Ingestion\bin\Debug\net8.0\AWSSDK.S3.dll

@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Pluota8YjpQ=",
+  "dgSpecHash": "zkj0K749hlM=",
   "success": true,
   "projectFilePath": "C:\\Users\\Ashley\\source\\repos\\EDI_NCPCP_Parser\\EDI_NCPDP_Ingestion\\EDI_NCPDP_Ingestion.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Ashley\\.nuget\\packages\\awssdk.core\\4.0.7.1\\awssdk.core.4.0.7.1.nupkg.sha512",
+    "C:\\Users\\Ashley\\.nuget\\packages\\awssdk.s3\\4.0.23.3\\awssdk.s3.4.0.23.3.nupkg.sha512",
     "C:\\Users\\Ashley\\.nuget\\packages\\edifabric\\10.7.6\\edifabric.10.7.6.nupkg.sha512",
     "C:\\Users\\Ashley\\.nuget\\packages\\edifabric.templates.ncpdp\\2.7.6\\edifabric.templates.ncpdp.2.7.6.nupkg.sha512",
     "C:\\Users\\Ashley\\.nuget\\packages\\entityframework\\6.5.2\\entityframework.6.5.2.nupkg.sha512",

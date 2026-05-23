@@ -4,7 +4,9 @@
     <BuildType Name="Release" />
     <BuildType Name="Test" />
   </Configurations>
-  <Folder Name="/docs/" />
+  <Folder Name="/docs/">
+    <File Path="run-moto.ps1" />
+  </Folder>
   <Folder Name="/samples/">
     <File Path="../../../../../../Files/ClaimBilling" />
     <File Path="../../../../../../Files/ClaimBilling.json" />
