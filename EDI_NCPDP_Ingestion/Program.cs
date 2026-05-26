@@ -7,15 +7,19 @@ namespace EDI_NCPDP_Ingestion
     {
         public static void Main() 
         {
+            // Get the settings for reading from S3 and local path from app.config
             string _readS3 = ConfigurationManager.AppSettings["ReadS3"];
             string _local = ConfigurationManager.AppSettings["ReadLocal"];
+            string _localFileName = ConfigurationManager.AppSettings["LocalFileName"];
+            string _bucketName = ConfigurationManager.AppSettings["S3BucketName"];
+            string _keyName = ConfigurationManager.AppSettings["S3KeyName"];
 
-            var fullFilePath = Config.TestFilesPath+@"\ClaimBilling"; // Needs to be moved
+            var fullFilePath = Config.TestFilesPath+@"\"+_localFileName; // Only used for local file reading
             var ncpdpFiles = new List<EdiFabric.Templates.TelcoD0.TSB1>();
 
             try
             {
-                //Get the serial key from the Config class
+                //Get the serial key from App.config
                 var serialKey = Config.TrialSerialKey;
 
                 if (_local == "1")
@@ -33,16 +37,13 @@ namespace EDI_NCPDP_Ingestion
                 {
                     Console.WriteLine("Reading file from S3 bucket: ");
                     
-                    // Read the file from S3 and get the list of TSB1 objects
-                    //sncpdpFiles = S3FileLoad.GetS3ObjectsAsync("test","test",serialKey);
+                    var s3Loader = new S3FileLoad();
+                    ncpdpFiles = s3Loader.ParseS3File(_bucketName, _keyName, serialKey);
 
                     // Save the file to the DB
-                    //SaveNCPDP.ProcessClaim(ncpdpFiles);
+                    SaveNCPDP.ProcessClaim(ncpdpFiles);
                 }
-
                 
-
-
             }
             catch (Exception ex)
             {
