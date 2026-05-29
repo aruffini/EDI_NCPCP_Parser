@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EDI_NCPDP_Ingestion")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a3464a61aa9cd08ffd1564c6eae7f9eaeeafe1c0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+950e10993b817dc44a26e91d6e67176a0e413fce")]
 [assembly: System.Reflection.AssemblyProductAttribute("EDI_NCPDP_Ingestion")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EDI_NCPDP_Ingestion")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

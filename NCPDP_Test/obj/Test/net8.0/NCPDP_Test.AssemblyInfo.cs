@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NCPDP_Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Test")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a3464a61aa9cd08ffd1564c6eae7f9eaeeafe1c0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+950e10993b817dc44a26e91d6e67176a0e413fce")]
 [assembly: System.Reflection.AssemblyProductAttribute("NCPDP_Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NCPDP_Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

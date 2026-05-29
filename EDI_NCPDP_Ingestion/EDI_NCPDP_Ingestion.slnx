@@ -17,6 +17,7 @@
     <File Path="../../../../../../Files/ClaimBillingCorruptHeader" />
     <File Path="../../../../../../Files/ClaimBillingMultiLoop" />
     <File Path="../../../../../../Files/ClaimBillings" />
+    <File Path="../Files/sample_ClaimBilling.txt" />
   </Folder>
   <Folder Name="/src/">
     <Project Path="EDI_NCPDP_Ingestion.csproj">
