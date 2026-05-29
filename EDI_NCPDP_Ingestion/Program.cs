@@ -94,8 +94,9 @@ namespace EDI_NCPDP_Ingestion
                 {
                     var s3Config = new AmazonS3Config
                     {
-                        ServiceURL = ConfigurationManager.AppSettings["EndpointUrl"],
-                        ForcePathStyle = true
+                        ServiceURL = "http://localhost:4566",//ConfigurationManager.AppSettings["EndpointUrl"],
+                        ForcePathStyle = true,
+                        RegionEndpoint = RegionEndpoint.USEast1
                     };
 
                     //var s3Client = new AmazonS3Client(RegionEndpoint.USEast1);
