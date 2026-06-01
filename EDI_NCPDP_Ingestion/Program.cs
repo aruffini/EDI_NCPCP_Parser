@@ -1,47 +1,5 @@
-﻿using Amazon;
-using Amazon.Runtime;
-using Amazon.S3;
-using EDI_NCPDP_Ingestion;
-using EdiFabric;
-//using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
-using Microsoft.Extensions.Logging.Console;
+﻿using Amazon.S3;
 using System.Configuration;
-
-//var builder = Host.CreateApplicationBuilder(args);
-
-//builder.Services.AddSingleton<AmazonS3Client>( sp =>
-//{
-//    var accesskey = ConfigurationManager.AppSettings["AccessKey"];
-//    var secretkey = ConfigurationManager.AppSettings["SecretAccessKey"];
-//    var endpointURL = ConfigurationManager.AppSettings["EndpointUrl"];
-
-//    var s3Config = new AmazonS3Config { RegionEndpoint = RegionEndpoint.GetBySystemName(ConfigurationManager.AppSettings["AWSRegion"])};
-
-//    // If endpointUrl provided, point to Moto instead of real AWS
-//    if (!string.IsNullOrEmpty(endpointURL))
-//    {
-//        s3Config.ServiceURL = endpointURL;  // http://localhost:4566 for Moto
-//        s3Config.ForcePathStyle = true;     // Required for Moto compatibility
-//    }
-
-//    if (!string.IsNullOrEmpty(accesskey) && !string.IsNullOrEmpty(secretkey))
-//    {
-//        var credentials = new BasicAWSCredentials(accesskey, secretkey);
-//        return new AmazonS3Client(credentials, s3Config);
-//    }
-//    else
-//    {
-//        // Fallback to default AWS credentials chain (IAM roles, etc.)
-//        return new AmazonS3Client(s3Config);
-//    }
-
-//});
-
-//builder.Services.AddTransient<S3FileLoad>();
 
 namespace EDI_NCPDP_Ingestion
 {
@@ -62,15 +20,6 @@ namespace EDI_NCPDP_Ingestion
             string _s3SecretKey = ConfigurationManager.AppSettings["SecretAccessKey"];
 
 
-            // Set Environment variables for AWS
-            //Environment.SetEnvironmentVariable("AWS_ACCESS_KEY_ID", ConfigurationManager.AppSettings["AccessKey"]);
-            //Environment.SetEnvironmentVariable("AWS_SECRET_ACCESS_KEY", ConfigurationManager.AppSettings["SecretAccessKey"]);
-            //Environment.SetEnvironmentVariable("AWS_REGION", ConfigurationManager.AppSettings["AWSRegion"]);
-            //Environment.SetEnvironmentVariable("AWS_SECURITY_TOKEN", ConfigurationManager.AppSettings["AWSSecurityToken"]);
-
-
-
-            //var fullFilePath = Config.TestFilesPath+@"\"+_localFileName; // Only used for local file reading
             var fullFilePath = _localFilePath + @"\" + _localFileName;
             var ncpdpFiles = new List<EdiFabric.Templates.TelcoD0.TSB1>();
 
@@ -92,14 +41,13 @@ namespace EDI_NCPDP_Ingestion
                 }
                 else if (_readS3 == "1")
                 {
+                    // Get the S3Config settings from App.config
                     var s3Config = new AmazonS3Config
                     {
-                        ServiceURL = "http://localhost:4566",//ConfigurationManager.AppSettings["EndpointUrl"],
-                        ForcePathStyle = true,
-                        RegionEndpoint = RegionEndpoint.USEast1
+                        ServiceURL = ConfigurationManager.AppSettings["EndpointUrl"],
+                        ForcePathStyle = true
                     };
 
-                    //var s3Client = new AmazonS3Client(RegionEndpoint.USEast1);
                     var s3Client = new AmazonS3Client(_s3AccessKey, _s3SecretKey, s3Config);
                     var intializer = new MotoInitializer(s3Client, _bucketName, _s3FilePrefix, verbose: true);
 
@@ -108,14 +56,14 @@ namespace EDI_NCPDP_Ingestion
                     // Start Moto, create bucket, upload sample files
                     Console.WriteLine("** Starting Moto S3 mock server");
                     await intializer.InitializeAsync();
-                    Console.WriteLine("** Moto initialized");
+                    Console.WriteLine("** Moto initialized and Files Uploaded");
 
                     //Read file into a stream and then converted into a list prior to parsing
                     var s3Loader = new S3FileLoad();
-                    ncpdpFiles = s3Loader.ParseS3File(s3Client, _bucketName, _keyName, serialKey);
+                    ncpdpFiles = s3Loader.ParseS3File(s3Client, _bucketName, _keyName, _s3FilePrefix, serialKey);
 
                     // Save the file to the DB
-                    //SaveNCPDP.ProcessClaim(ncpdpFiles);
+                    SaveNCPDP.ProcessClaim(ncpdpFiles);
                     
                     // Stop Moto
                     await intializer.CleanupAsync();

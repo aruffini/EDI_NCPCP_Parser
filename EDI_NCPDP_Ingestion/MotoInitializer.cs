@@ -2,6 +2,7 @@
 using Amazon.S3.Model;
 using System.Diagnostics;
 using System.Net.Sockets;
+using System.IO;
 
 namespace EDI_NCPDP_Ingestion
 {
@@ -172,10 +173,24 @@ namespace EDI_NCPDP_Ingestion
             };
 
             var existingFiles = await _s3Client.ListObjectsV2Async(listRequest);
-            var existingKeys = existingFiles.S3Objects.Select(o => Path.GetFileName(o.Key)).ToHashSet();
+            //var existingKeys = existingFiles.S3Objects.Select(o => Path.GetFileName(o.Key)).ToHashSet();
+            var existingKeys = new HashSet<string>();
+
+            if (existingFiles.S3Objects != null && existingFiles.S3Objects.Count > 0)
+            {
+                foreach (var file in existingFiles.S3Objects)
+                {
+                    existingKeys.Add(file.Key);
+                }
+            }
+            else
+            {
+                Log("\n       No files present in the specified prefix.");
+            }
 
             // Look for sample_*.txt files in local samples folder
-            var samplesDir = Path.Combine(Directory.GetCurrentDirectory(), "samples");
+            //var samplesDir = Path.Combine(Directory.GetCurrentDirectory(), "samples");
+            var samplesDir = @"C:\Files";
 
             if (!Directory.Exists(samplesDir))
             {
