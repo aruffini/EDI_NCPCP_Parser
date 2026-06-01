@@ -2,7 +2,7 @@
 using Amazon.S3.Model;
 using System.Diagnostics;
 using System.Net.Sockets;
-using System.IO;
+using System.Configuration;
 
 namespace EDI_NCPDP_Ingestion
 {
@@ -173,9 +173,10 @@ namespace EDI_NCPDP_Ingestion
             };
 
             var existingFiles = await _s3Client.ListObjectsV2Async(listRequest);
-            //var existingKeys = existingFiles.S3Objects.Select(o => Path.GetFileName(o.Key)).ToHashSet();
             var existingKeys = new HashSet<string>();
 
+            // Check for existing Keys/Files. If any exist, add them to the HashSet.
+            // These files will be used to prevent re-uploading.
             if (existingFiles.S3Objects != null && existingFiles.S3Objects.Count > 0)
             {
                 foreach (var file in existingFiles.S3Objects)
@@ -189,8 +190,7 @@ namespace EDI_NCPDP_Ingestion
             }
 
             // Look for sample_*.txt files in local samples folder
-            //var samplesDir = Path.Combine(Directory.GetCurrentDirectory(), "samples");
-            var samplesDir = @"C:\Files";
+            var samplesDir = ConfigurationManager.AppSettings["LocalFileLocation"];
 
             if (!Directory.Exists(samplesDir))
             {
