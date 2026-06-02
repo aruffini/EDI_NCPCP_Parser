@@ -69,10 +69,8 @@ namespace EDI_NCPDP_Ingestion
 
                     //Read file into a stream and then converted into a list prior to parsing
                     var s3Loader = new S3FileLoad();
-                    ncpdpFiles = s3Loader.ParseS3File(s3Client, _bucketName, _keyName, _s3FilePrefix, serialKey);
-
-                    // Save the file to the DB
-                    SaveNCPDP.ProcessClaim(ncpdpFiles);
+                    //ncpdpFiles = s3Loader.ParseS3File(s3Client, _bucketName, _keyName, _s3FilePrefix, serialKey);
+                    await s3Loader.ParseS3File(s3Client, _bucketName, _keyName, _s3FilePrefix, serialKey);
                     
                     // Stop Moto
                     await intializer.CleanupAsync();
