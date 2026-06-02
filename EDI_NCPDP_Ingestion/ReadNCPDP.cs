@@ -1,6 +1,7 @@
 ﻿using EdiFabric;
 using EdiFabric.Framework.Readers;
 using EdiFabric.Templates.TelcoD0;
+using EdiFabric.Core.Model.Edi.ErrorContexts;
 
 namespace EDI_NCPDP_Ingestion
 {

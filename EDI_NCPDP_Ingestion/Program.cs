@@ -20,7 +20,7 @@ namespace EDI_NCPDP_Ingestion
             string _s3SecretKey = ConfigurationManager.AppSettings["SecretAccessKey"];
 
 
-            var fullFilePath = _localFilePath + @"\" + _localFileName;
+            //var fullFilePath = _localFilePath + @"\" + _localFileName;
             var ncpdpFiles = new List<EdiFabric.Templates.TelcoD0.TSB1>();
 
             try
@@ -30,13 +30,21 @@ namespace EDI_NCPDP_Ingestion
 
                 if (_local == "1")
                 {
-                    Console.WriteLine("Reading file from local path: " + fullFilePath);
+                    DirectoryInfo directory = new DirectoryInfo(_localFilePath);
+                    FileInfo[] files = directory.GetFiles();
 
-                    // Read the file and get the list of TSB1 objects
-                    ncpdpFiles = ReadNCPDP.ReadFile(fullFilePath, serialKey);
+                    foreach (FileInfo i in files)
+                    {
+                        string fullFilePath = i.FullName;
 
-                    // Save the file to the DB
-                    SaveNCPDP.ProcessClaim(ncpdpFiles);
+                        Console.WriteLine("Reading file from local path: " + fullFilePath);
+
+                        // Read the file and get the list of TSB1 objects
+                        ncpdpFiles = ReadNCPDP.ReadFile(fullFilePath, serialKey);
+
+                        // Save the file to the DB
+                        SaveNCPDP.ProcessClaim(ncpdpFiles);
+                    }
 
                 }
                 else if (_readS3 == "1")

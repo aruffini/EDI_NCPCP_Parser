@@ -3,6 +3,7 @@ using Amazon.S3.Model;
 using EdiFabric;
 using EdiFabric.Framework.Readers;
 using EdiFabric.Templates.TelcoD0;
+using EdiFabric.Core.Model.Edi.ErrorContexts;
 
 namespace EDI_NCPDP_Ingestion
 {
@@ -38,7 +39,7 @@ namespace EDI_NCPDP_Ingestion
                     var errors = transaction.ErrorContext.Flatten();
                     foreach (var err in errors)
                     {
-                        Console.WriteLine($"ERROR: {err}");
+                        Console.WriteLine($"\n ERROR: {err}");
                     }
                 }
                 else
