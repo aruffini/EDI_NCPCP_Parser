@@ -1,4 +1,6 @@
-﻿using Amazon.S3;
+﻿using Amazon.Runtime.Internal;
+using Amazon.S3;
+using Amazon.S3.Model;
 using System.Configuration;
 
 namespace EDI_NCPDP_Ingestion
@@ -67,11 +69,25 @@ namespace EDI_NCPDP_Ingestion
                     await intializer.InitializeAsync();
                     Console.WriteLine("** Moto initialized and Files Uploaded");
 
-                    //Read file into a stream and then converted into a list prior to parsing
-                    var s3Loader = new S3FileLoad();
-                    //ncpdpFiles = s3Loader.ParseS3File(s3Client, _bucketName, _keyName, _s3FilePrefix, serialKey);
-                    await s3Loader.ParseS3File(s3Client, _bucketName, _keyName, _s3FilePrefix, serialKey);
-                    
+                    var s3Request = new ListObjectsV2Request
+                    {
+                        BucketName = _bucketName,
+                        Prefix = _s3FilePrefix
+                    };
+
+                    var paginatorsResponse = s3Client.Paginators.ListObjectsV2(s3Request);
+
+                    // Loop through S3 Bucket and parse each file
+                    await foreach (var p in paginatorsResponse.Responses)
+                    {
+                        foreach (var s3obj in p.S3Objects.Where(o => o.Size > 0))
+                        {
+                            //Read file into a stream and then converted into a list prior to parsing
+                            var s3Loader = new S3FileLoad();
+                            //ncpdpFiles = s3Loader.ParseS3File(s3Client, _bucketName, _keyName, _s3FilePrefix, serialKey);
+                            await s3Loader.ParseS3File(s3Client, _bucketName, _keyName, _s3FilePrefix, serialKey);
+                        }
+                    }
                     // Stop Moto
                     await intializer.CleanupAsync();
                 }
