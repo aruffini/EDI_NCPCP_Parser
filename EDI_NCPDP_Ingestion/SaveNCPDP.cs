@@ -131,7 +131,7 @@ namespace EDI_NCPDP_Ingestion
                 }// End ForEach
             } // End Using
 
-            Console.WriteLine("File(s) loaded.");
+            //Console.WriteLine("File(s) loaded.");
 
         } // End ProcessClaim
     } // End SaveNPDPD

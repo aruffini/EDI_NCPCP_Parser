@@ -40,10 +40,11 @@ namespace EDI_NCPDP_Ingestion
                         Console.WriteLine("Reading file from local path: " + fullFilePath);
 
                         // Read the file and get the list of TSB1 objects
-                        ncpdpFiles = ReadNCPDP.ReadFile(fullFilePath, serialKey);
+                        //ncpdpFiles = await ReadNCPDP.ReadFile(fullFilePath, serialKey);
+                        await ReadNCPDP.ReadFile(fullFilePath, serialKey);
 
-                        // Save the file to the DB
-                        SaveNCPDP.ProcessClaim(ncpdpFiles);
+                        // Save the files to the DB
+                        //SaveNCPDP.ProcessClaim(ncpdpFiles);
                     }
 
                 }
