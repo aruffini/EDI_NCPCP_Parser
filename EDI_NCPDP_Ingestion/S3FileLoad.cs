@@ -1,9 +1,10 @@
 ﻿using Amazon.S3;
 using Amazon.S3.Model;
 using EdiFabric;
+using EdiFabric.Core.Model.Edi.ErrorContexts;
 using EdiFabric.Framework.Readers;
 using EdiFabric.Templates.TelcoD0;
-using EdiFabric.Core.Model.Edi.ErrorContexts;
+using System.Data.SqlClient;
 
 namespace EDI_NCPDP_Ingestion
 {
@@ -12,7 +13,7 @@ namespace EDI_NCPDP_Ingestion
         // This method parses an NCPDP file from S3 using the EdiFabric SDK.
         // It takes in the bucket name, key name, and serial key as parameters and returns
         // a list of TSB1 objects representing the parsed transactions.
-        public List<TSB1> ParseS3File(IAmazonS3 s3Client, string bucketName, string fileName, string filePrefix, string serialKey)
+        public async Task ParseS3File(IAmazonS3 s3Client, string bucketName, string fileName, string filePrefix, string serialKey)
         {
             try
             {
@@ -34,21 +35,36 @@ namespace EDI_NCPDP_Ingestion
             // Loop through each of the NCPDP transactions and save them to a list
             foreach (var transaction in ncpdpTrans)
             {
-                if (transaction.HasErrors)
+                Tuple<bool, MessageErrorContext> result = await transaction.IsValidAsync();
+                if (!result.Item1)
                 {
-                    var errors = transaction.ErrorContext.Flatten();
-                    foreach (var err in errors)
+                    var errors = result.Item2.Flatten();
+
+                    foreach (var e in errors)
                     {
-                        Console.WriteLine($"\n ERROR: {err}");
+                        using (var db = new NCPDPContext())
+                        {
+                            Console.WriteLine($" *** {fileName}  ERROR: {e}");
+
+                            SqlParameter param1 = new SqlParameter("@FilePath", fileName);
+                            SqlParameter param2 = new SqlParameter("@ErrorMessage", e);
+
+                            db.Database.ExecuteSqlCommand("EXEC EDI.log.InsertParsingErrors @FilePath, @ErrorMessage", param1, param2);
+                        }
+                        ;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("File Parsed.");
+                    Console.WriteLine($"File Parsed: {transaction}");
                     ncpdpList.Add(transaction);
                 }
             }
-            return ncpdpList;
+
+            if (ncpdpList.Count > 0)
+            {
+                SaveNCPDP.ProcessClaim(ncpdpList);
+            }
         } // End ParseS3File
 
         // This method loads a file from S3 into a MemoryStream to be parsed by the EdiFabric SDK.

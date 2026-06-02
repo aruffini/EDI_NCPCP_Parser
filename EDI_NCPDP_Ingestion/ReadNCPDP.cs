@@ -45,7 +45,7 @@ namespace EDI_NCPDP_Ingestion
                     {
                         using (var db = new NCPDPContext())
                         {
-                            Console.WriteLine($" *** {filePath}  ERROR: {errors}");
+                            Console.WriteLine($" *** {filePath}  ERROR: {e}");
 
                             SqlParameter param1 = new SqlParameter("@FilePath", filePath);
                             SqlParameter param2 = new SqlParameter("@ErrorMessage", e);
