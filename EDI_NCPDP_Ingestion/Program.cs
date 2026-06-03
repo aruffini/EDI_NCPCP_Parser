@@ -14,15 +14,12 @@ namespace EDI_NCPDP_Ingestion
             string _local = ConfigurationManager.AppSettings["ReadLocal"];
             string _localFileName = ConfigurationManager.AppSettings["LocalFileName"];
             string _bucketName = ConfigurationManager.AppSettings["S3BucketName"];
-            //string _keyName = ConfigurationManager.AppSettings["S3KeyName"];
-            string _localFilePath = ConfigurationManager.AppSettings["LocalFileLocation"];
+            string _loadFilePath = ConfigurationManager.AppSettings["LocalFileLocation"];
             string _ediFabaricKey = ConfigurationManager.AppSettings["EDIFabricKey"];
             string _s3FilePrefix = ConfigurationManager.AppSettings["S3FilePrefix"];
             string _s3AccessKey = ConfigurationManager.AppSettings["AccessKey"];
             string _s3SecretKey = ConfigurationManager.AppSettings["SecretAccessKey"];
 
-
-            //var fullFilePath = _localFilePath + @"\" + _localFileName;
             var ncpdpFiles = new List<EdiFabric.Templates.TelcoD0.TSB1>();
 
             try
@@ -30,9 +27,10 @@ namespace EDI_NCPDP_Ingestion
                 //Get the serial key from App.config
                 var serialKey = _ediFabaricKey;
 
-                if (_local == "1")
+                // Read files locally
+                if (_readS3 != "true")
                 {
-                    DirectoryInfo directory = new DirectoryInfo(_localFilePath);
+                    DirectoryInfo directory = new DirectoryInfo(_loadFilePath);
                     FileInfo[] files = directory.GetFiles();
 
                     foreach (FileInfo i in files)
@@ -42,15 +40,13 @@ namespace EDI_NCPDP_Ingestion
                         Console.WriteLine("Reading file from local path: " + fullFilePath);
 
                         // Read the file and get the list of TSB1 objects
-                        //ncpdpFiles = await ReadNCPDP.ReadFile(fullFilePath, serialKey);
                         await ReadNCPDP.ReadFile(fullFilePath, serialKey);
-
-                        // Save the files to the DB
-                        //SaveNCPDP.ProcessClaim(ncpdpFiles);
                     }
 
                 }
-                else if (_readS3 == "1")
+
+                // Read files from S3 Bucket
+                if (_readS3 == "true")
                 {
                     // Get the S3Config settings from App.config
                     var s3Config = new AmazonS3Config
@@ -84,7 +80,6 @@ namespace EDI_NCPDP_Ingestion
                         {
                             //Read file into a stream and then converted into a list prior to parsing
                             var s3Loader = new S3FileLoad();
-                            //ncpdpFiles = s3Loader.ParseS3File(s3Client, _bucketName, _keyName, _s3FilePrefix, serialKey);
                             await s3Loader.ParseS3File(s3Client, _bucketName, s3obj.Key, serialKey);
                         }
                     }
