@@ -198,7 +198,7 @@ namespace EDI_NCPDP_Ingestion
                 return;
             }
 
-            var localFiles = Directory.GetFiles(samplesDir, "sample_*.txt");
+            var localFiles = Directory.GetFiles(samplesDir, "ClaimBilling*");
 
             if (localFiles.Length == 0)
             {

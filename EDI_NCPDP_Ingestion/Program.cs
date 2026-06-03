@@ -14,7 +14,7 @@ namespace EDI_NCPDP_Ingestion
             string _local = ConfigurationManager.AppSettings["ReadLocal"];
             string _localFileName = ConfigurationManager.AppSettings["LocalFileName"];
             string _bucketName = ConfigurationManager.AppSettings["S3BucketName"];
-            string _keyName = ConfigurationManager.AppSettings["S3KeyName"];
+            //string _keyName = ConfigurationManager.AppSettings["S3KeyName"];
             string _localFilePath = ConfigurationManager.AppSettings["LocalFileLocation"];
             string _ediFabaricKey = ConfigurationManager.AppSettings["EDIFabricKey"];
             string _s3FilePrefix = ConfigurationManager.AppSettings["S3FilePrefix"];
@@ -85,7 +85,7 @@ namespace EDI_NCPDP_Ingestion
                             //Read file into a stream and then converted into a list prior to parsing
                             var s3Loader = new S3FileLoad();
                             //ncpdpFiles = s3Loader.ParseS3File(s3Client, _bucketName, _keyName, _s3FilePrefix, serialKey);
-                            await s3Loader.ParseS3File(s3Client, _bucketName, _keyName, _s3FilePrefix, serialKey);
+                            await s3Loader.ParseS3File(s3Client, _bucketName, s3obj.Key, serialKey);
                         }
                     }
                     // Stop Moto

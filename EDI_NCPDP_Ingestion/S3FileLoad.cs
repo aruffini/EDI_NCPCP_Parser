@@ -13,7 +13,7 @@ namespace EDI_NCPDP_Ingestion
         // This method parses an NCPDP file from S3 using the EdiFabric SDK.
         // It takes in the bucket name, key name, and serial key as parameters and returns
         // a list of TSB1 objects representing the parsed transactions.
-        public async Task ParseS3File(IAmazonS3 s3Client, string bucketName, string fileName, string filePrefix, string serialKey)
+        public async Task ParseS3File(IAmazonS3 s3Client, string bucketName, string fileName, string serialKey)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace EDI_NCPDP_Ingestion
             }
 
             // Load the S3 File into a stream for processing
-            var memStream = LoadS3FileToMemoryStreamAsync(s3Client, bucketName, filePrefix, fileName).Result;
+            var memStream = LoadS3FileToMemoryStreamAsync(s3Client, bucketName, fileName).Result;
             using var ncpdpReader = new NcpdpTelcoReader(memStream, "EdiFabric.Templates.Ncpdp");
             var ncpdpItems = ncpdpReader.ReadToEnd().ToList();
             var ncpdpTrans = ncpdpItems.OfType<TSB1>();
@@ -70,7 +70,7 @@ namespace EDI_NCPDP_Ingestion
         // This method loads a file from S3 into a MemoryStream to be parsed by the EdiFabric SDK.
         // The method takes in the S3 client, bucket name, and key name as parameters and
         // returns a MemoryStream containing the file data.
-        private async Task<MemoryStream> LoadS3FileToMemoryStreamAsync(IAmazonS3 s3Client, string bucketName, string filePrefix, string fileName)
+        private async Task<MemoryStream> LoadS3FileToMemoryStreamAsync(IAmazonS3 s3Client, string bucketName, string fileName)
         {
             var _memStream = new MemoryStream();
             try
@@ -78,7 +78,7 @@ namespace EDI_NCPDP_Ingestion
                 var request = new GetObjectRequest
                 {
                     BucketName = bucketName,
-                    Key = filePrefix+fileName
+                    Key = fileName
                 };
 
                 using var response = await s3Client.GetObjectAsync(request);
