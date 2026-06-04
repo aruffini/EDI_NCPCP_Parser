@@ -17,6 +17,8 @@
       - MSTestSettings.cs     
   - samples/                  <- Testing Files
   - docs/
+- SQL Scripts/
+  - CreateLoggingObjects.sql  <- Creates the Schema, Table, and Stored Procedure for the validation.
 ```
 
 ## NuGet Packages and Dependencies
@@ -45,4 +47,6 @@ To test with Moto.py, run ```run-moto.ps1``` using Windows PowerShell. This will
 Run the following in PowerShell or the Package Manager Console in Visual Studio
 1. Add-Migration InitialCreate
 2. Update-Database
+
+After EF has created the database, execute CreateLoggingObjects.sql located within the SQL Scripts folder to create the Schema, Table, and Stored Procedure for the validation.
   
